@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
 
-$response= 'conectado a la base de datos wazza ';
+$response= 'conectado a la base de datos wazzas';
 
 $name=$_POST['Evento'];
 $place=$_POST['Lugar'];
