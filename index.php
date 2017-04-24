@@ -20,7 +20,7 @@ $date=$_POST['Fecha'];
 
 $sql = "INSERT INTO eventos (Evento,Lugar,Hora,Fecha) VALUES ('$name','$place','$time','$date');";
 
-$response="OK"
+$response="OK";
 	
 if ($conn->query($sql) === TRUE) {
 	$response="Record added successfully";
@@ -28,7 +28,7 @@ if ($conn->query($sql) === TRUE) {
 	$response="Error: " . $sql . "" . $conn->error;
 }
 
-echo ($response);
+echo json_encode($response);
 
 $conn->close();
 ?>
