@@ -12,12 +12,14 @@ if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
 
-$response= 'conectado a la base de datos wazzas';
+$response= 'conectado a la base de datos';
+
+$data=$_POST;
 
 $name=$_POST['Evento'];
 $place=$_POST['Lugar'];
-$time=$_POST['Hora'];
-$date=$_POST['Fecha'];
+$time="";//$_POST['Hora'];
+$date="";//$_POST['Fecha'];
 
 $sql = "INSERT INTO eventos (Evento,Lugar,Hora,Fecha) VALUES ('$name','$place','$time','$date');";
 
@@ -29,7 +31,7 @@ if ($conn->query($sql) === TRUE) {
 	$response="Error: " . $sql . "" . $conn->error;
 }
 
-echo json_encode(array("result"=>$response));
+echo json_encode(array("result"=>$response, "data"=>$data));
 
 $conn->close();
 ?>
