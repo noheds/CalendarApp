@@ -29,7 +29,7 @@ if ($conn->query($sql) === TRUE) {
 	$response="Error: " . $sql . "" . $conn->error;
 }
 
-echo json_encode({"result": $response});
+echo json_encode(array("result"=>$response));
 
 $conn->close();
 ?>
