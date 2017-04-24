@@ -18,12 +18,17 @@ $date=$_POST['Fecha'];
 
 	$sql = "INSERT INTO eventos (Evento,Lugar,Hora,Fecha) VALUES ('$name','$place',$time','$date')";
 
-	if ($conn->query($sql) === TRUE) {
+
+	$result = mysql_query($sql); 
+
+	if ($result === TRUE) {
 		echo "New record created successfully";
 	   
 	}else{
-
-		echo . mysql_error($sql);
+		echo 'error';
+		if (mysql_errno()) { 
+	  	$error = "MySQL error ".mysql_errno().": ".mysql_error()."\n<br>When executing:<br>\n$sql\n<br>";
+		}
 	}
 
 
