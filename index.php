@@ -1,5 +1,6 @@
 <?php
-
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
 $servername = 'us-cdbr-iron-east-03.cleardb.net';
 $username = 'bfd7d70e584dce';
