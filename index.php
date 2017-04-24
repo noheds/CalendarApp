@@ -14,7 +14,7 @@ $time=$_POST['Hora'];
 $date=$_POST['Fecha'];
 
 
-if($action=='insert'){
+
 
 	$sql = "INSERT INTO eventos (Evento,Lugar,Hora,Fecha) VALUES ('$name','$place',$time','$date')";
 
@@ -23,7 +23,7 @@ if($action=='insert'){
 	   
 	}
 
-}
+
 
 $conn->close();
 
