@@ -25,12 +25,10 @@ $response="OK"
 if ($conn->query($sql) === TRUE) {
 	$response="Record added successfully";
 } else {
-	$response="Error: " . $sql . "
-	" . $conn->error;
+	$response="Error: " . $sql . "" . $conn->error;
 }
 
-echo json_encode($response);
+echo ($response);
 
 $conn->close();
-
 ?>
