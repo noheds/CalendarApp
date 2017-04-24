@@ -18,7 +18,7 @@ $place=$_POST['Lugar'];
 $time=$_POST['Hora'];
 $date=$_POST['Fecha'];
 
-$sql = "INSERT INTO eventos (Evento,Lugar,Hora,Fecha) VALUES ('$name','$place',$time','$date');";
+$sql = "INSERT INTO eventos (Evento,Lugar,Hora,Fecha) VALUES ('$name','$place','$time','$date');";
 
 
 	
