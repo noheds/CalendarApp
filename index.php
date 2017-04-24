@@ -1,37 +1,33 @@
 <?php
 
-$conn = new mysqli('us-cdbr-iron-east-03.cleardb.net', 'bfd7d70e584dce', 'b6eb7512', 'heroku_a41f85eea948e5b');
 
-echo 'conetado a la base de datos ';
+$servername = 'us-cdbr-iron-east-03.cleardb.net';
+$username = 'bfd7d70e584dce';
+$password ='b6eb7512';
+$dbname = 'heroku_a41f85eea948e5b';
 
+$conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-} 
+die("Connection failed: " . $conn->connect_error);
+}
+
+echo 'conectado a la base de datos ';
 
 $name=$_POST['Evento'];
 $place=$_POST['Lugar'];
 $time=$_POST['Hora'];
 $date=$_POST['Fecha'];
 
+$sql = "INSERT INTO eventos (Evento,Lugar,Hora,Fecha) VALUES ('$name','$place',$time','$date');";
 
 
-
-	$sql = "INSERT INTO eventos (Evento,Lugar,Hora,Fecha) VALUES ('$name','$place',$time','$date')";
-
-
-	$result = mysql_query($sql); 
-
-	if ($result === TRUE) {
-		echo "New record created successfully";
-	   
-	}else{
-		echo 'error';
-		if (mysql_errno()) { 
-	  	$error = "MySQL error ".mysql_errno().": ".mysql_error()."\n<br>When executing:<br>\n$sql\n<br>";
-		}
-	}
-
-
+	
+if ($conn->query($sql) === TRUE) {
+	echo "Record added successfully";
+} else {
+	echo "Error: " . $sql . "
+	" . $conn->error;
+}
 
 $conn->close();
 
