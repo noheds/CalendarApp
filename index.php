@@ -11,7 +11,7 @@ if ($conn->connect_error) {
 die("Connection failed: " . $conn->connect_error);
 }
 
-echo 'conectado a la base de datos ';
+$response= 'conectado a la base de datos ';
 
 $name=$_POST['Evento'];
 $place=$_POST['Lugar'];
@@ -28,7 +28,7 @@ if ($conn->query($sql) === TRUE) {
 	$response="Error: " . $sql . "" . $conn->error;
 }
 
-echo json_encode($response);
+echo json_encode({"result": $response});
 
 $conn->close();
 ?>
