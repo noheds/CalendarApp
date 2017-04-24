@@ -2,6 +2,8 @@
 
 $conn = new mysqli('us-cdbr-iron-east-03.cleardb.net', 'bfd7d70e584dce', 'b6eb7512', 'heroku_a41f85eea948e5b');
 
+echo 'conetado a la base de datos '
+
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
@@ -21,6 +23,9 @@ $date=$_POST['Fecha'];
 	if ($conn->query($sql) === TRUE) {
 		echo "New record created successfully";
 	   
+	}else{
+
+		echo mysql_error()
 	}
 
 
