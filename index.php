@@ -8,8 +8,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$action=$_POST['action'];
-
 $name=$_POST['Evento'];
 $place=$_POST['Lugar'];
 $time=$_POST['Hora'];
@@ -25,7 +23,7 @@ $date=$_POST['Fecha'];
 	   
 	}else{
 
-		echo mysql_error();
+		echo . mysql_error($sql);
 	}
 
 
