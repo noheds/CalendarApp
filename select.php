@@ -17,7 +17,7 @@ $response= 'conectado a la base de datos';
 $sql = "SELECT * FROM eventos";
 
 
-$sql->execute();
+mysqli_execute($sql);
 if($sql->rowCount()){
 	$array = $sql->fetchall(PDO::FETCH_ASSOC);
 	    
