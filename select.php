@@ -36,7 +36,7 @@ if($sql->rowCount()){
 
 		echo $response="Tabla vacia";
 	}*/
-} else {
+ else {
 	$response="Error: " . $sql . "" . $conn->error;
 }
 
