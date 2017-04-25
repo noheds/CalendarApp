@@ -19,9 +19,10 @@ $sql = "SELECT * FROM eventos";
 $result = mysqli_query($conn, $sql);
 
 if(mysqli_num_rows($result) > 0){
-	$array = $result->fetchall(PDO::FETCH_ASSOC);
-	    
-   	 $response=json_encode($array);
+	$row = mysqli_fetch_array($result);
+	 
+
+   	$response=json_encode($row);
 }  
 
 /*if($result = mysqli_query($conn, $sql)){
