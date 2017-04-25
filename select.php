@@ -24,23 +24,17 @@ if($result = mysqli_query($conn, $sql)){
     	$array=$row;
 
     	}
-    	echo $response = $result;
+    	//echo $response = $result;
 	}else{
 
 		echo $response="Tabla vacia";
 	}
-}
-
-	
-//if ($conn->query($sql) === TRUE) {
-//	$response="Record added successfully";
-//}
- else {
+} else {
 	$response="Error: " . $sql . "" . $conn->error;
 }
 
 //echo json_encode(array("result"=>$response, "data"=>$data));
-	echo json_encode($response);
+	echo json_encode($array);
 
 $conn->close();
 ?>
