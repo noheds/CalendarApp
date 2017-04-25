@@ -15,14 +15,16 @@ die("Connection failed: " . $conn->connect_error);
 $response= 'conectado a la base de datos';
 
 $sql = "SELECT * FROM eventos";
+$array = array(,);
 
 if($result = mysqli_query($conn, $sql)){
     if(mysqli_num_rows($result) > 0){
-    	//while($row = mysqli_fetch_array($result)){
+    	while($row = mysqli_fetch_array($result)){
+    	
+    	$array=$row;
+
+    	}
     	echo $response = $result;
-
-
-    	//}
 	}else{
 
 		echo $response="Tabla vacia";
@@ -39,6 +41,6 @@ if($result = mysqli_query($conn, $sql)){
 
 //echo json_encode(array("result"=>$response, "data"=>$data));
 	echo json_encode($response);
-	 
+
 $conn->close();
 ?>
