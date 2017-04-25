@@ -16,10 +16,10 @@ $response= 'conectado a la base de datos';
 
 $sql = "SELECT * FROM eventos";
 
+$result = mysqli_query($conn, $sql);
 
-mysqli_execute($sql);
-if($sql->rowCount()){
-	$array = $sql->fetchall(PDO::FETCH_ASSOC);
+if(mysqli_num_rows($result) > 0){
+	$array = $result->fetchall(PDO::FETCH_ASSOC);
 	    
    	 $response=json_encode($array);
 }  
