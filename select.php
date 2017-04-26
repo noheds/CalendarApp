@@ -7,42 +7,24 @@ $username = 'bfd7d70e584dce';
 $password ='b6eb7512';
 $dbname = 'heroku_a41f85eea948e5b';
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-if ($conn->connect_error) {
-die("Connection failed: " . $conn->connect_error);
-}
+$con=mysqli_connect($servername,$username,$password,$dbname);
+  // Check connection
+  if (mysqli_connect_errno())
+  {
+   echo "Failed to connect to MySQL: " . mysqli_connect_error();
+  }
 
-$response= 'conectado a la base de datos';
+  $query = "Select * from eventos";
 
-$sql = "SELECT * FROM eventos";
+  $result = mysqli_query($con,$query);
 
-$result = mysqli_query($conn, $sql);
+  $rows = array();
 
-if(mysqli_num_rows($result) > 0){
-	$row = mysqli_fetch_array($result);
-	 
+  while($r = mysqli_fetch_array($result)) {
+    $rows[] = $r;
+  }
 
-   	$response=json_encode($row);
-}  
+  echo json_encode($rows);
 
-/*if($result = mysqli_query($conn, $sql)){
-    if(mysqli_num_rows($result) > 0){
-    	while($row = mysqli_fetch_array($result)){
-    	
-    	$array=$row;
-
-    	}
-    	//echo $response = $result;
-	}else{
-
-		echo $response="Tabla vacia";
-	}*/
- else {
-	$response="Error: " . $sql . "" . $conn->error;
-}
-
-//echo json_encode(array("result"=>$response, "data"=>$data));
-	//echo json_encode($array);
-		echo $response;
-$conn->close();
+  mysqli_close($con);
 ?>
