@@ -21,7 +21,7 @@ $con=mysqli_connect($servername,$username,$password,$dbname);
   $rows = array();
 
   while($r = mysqli_fetch_array($result)) {
-    $rows[] = $r;
+    $rows["Evento"] = $r;
   }
 
   echo json_encode($rows);
